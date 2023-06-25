@@ -1,22 +1,30 @@
 <div id="<%= dom_id idea %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= idea.name %>
-  </p>
+  <div class="mt-6 border-4 p-4 flex flex-row ">
+    <div class="flex-auto">
+      <p class="my-5 font-bold ">
+        <%= idea.name %>
+      </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= idea.description %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Picture:</strong>
-    <%= idea.picture %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this idea", idea, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this idea', edit_idea_path(idea), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Description:</strong>
+        <%= idea.description %>
+      </p>
+      <div>
+        <% if idea.picture.nil? %>
+          <p class="my-5">
+            <strong class="block font-medium mb-1">Picture:</strong>
+            <%= idea.picture %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <div class="flex-none flex items-center">
+      <div class=" flex flex-col">
+        <% if action_name != "show" %>
+          <%= link_to "Show this idea", idea, class: " mb-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+          <%= link_to 'Edit this idea', edit_idea_path(idea), class: " ml-0 rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
